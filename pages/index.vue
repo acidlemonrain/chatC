@@ -12,7 +12,7 @@
         <div class="text-xs-center">{{isconnect}}</div>
         <v-layout justify-space-between wrap>
           <v-flex xs10 md5>
-            <div class="msg">
+            <div class="msg" id="msg">
               <div v-for="(msg,index) in msgs" :key="index">
                 <div v-if="msg.user ==  username" style="color:red">{{msg.user}}:</div>
                 <div v-if="msg.user != username" style="color:blue">{{msg.user}}:</div>
@@ -68,6 +68,10 @@ export default {
       //on msg
       socket.on("msg", msg => {
         this.msgs.push(msg);
+        var element = document.getElementById("msg");
+        setTimeout(() => {
+          element.scrollTop = element.scrollHeight;
+        }, 20);
       });
     }
   }
