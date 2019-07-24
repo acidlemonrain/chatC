@@ -3,7 +3,7 @@
     <v-layout justify-center align-center>
       <v-flex xs12 sm8 md6 v-if="username == ''">
         <div class="loginmodule">
-          <v-text-field v-model="tname"></v-text-field>
+          <v-text-field v-model="tname" label="your name"></v-text-field>
           <v-btn @click="sure">sure</v-btn>
         </div>
       </v-flex>
