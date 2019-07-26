@@ -1,6 +1,18 @@
 <template>
-  <v-app dark>
-    <v-toolbar :clipped-left="clipped" fixed app></v-toolbar>
+  <v-app light>
+    <v-toolbar :clipped-left="clipped" fixed app flat>
+      <v-toolbar-side-icon></v-toolbar-side-icon>
+      <v-btn icon :to="'/'" large>
+        <v-icon>home</v-icon>
+      </v-btn>
+
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn flat :to="'/login'">Link One</v-btn>
+        <v-btn flat :to="'/home'">Link Two</v-btn>
+        <v-btn flat :to="'/zone'">Zone</v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
 
     <v-content>
       <v-container>
@@ -41,3 +53,9 @@ export default {
   }
 };
 </script>
+<style scoped>
+.custom-appear-class {
+  opacity: 0;
+}
+</style>
+

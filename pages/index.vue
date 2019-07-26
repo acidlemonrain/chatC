@@ -1,85 +1,66 @@
 <template>
-  <v-container>
-    <v-layout justify-center align-center>
-      <v-flex xs12 sm8 md6 v-if="username == ''">
-        <div class="loginmodule">
-          <v-text-field v-model="tname" label="your name"></v-text-field>
-          <v-btn @click="sure">sure</v-btn>
-        </div>
-      </v-flex>
+  <div>
+    <v-container>
+      <v-layout wrap>
+        <v-flex xs12>
+          <v-card flat class="blue lighten-5" width="100%">
+            <v-img src="https://cdn.vuetifyjs.com/images/cards/desert.jpg" aspect-ratio="2.75"></v-img>
+            <div class="pa-5">
+              <div class="display-1">welcome to chatting chatting</div>
 
-      <v-flex xs12 md11 class="chatmodule" v-if="username!=''">
-        <div class="text-xs-center">{{isconnect}}</div>
-        <v-layout justify-space-between wrap>
-          <v-flex xs10 md5>
-            <div class="msg" id="msg">
-              <div v-for="(msg,index) in msgs" :key="index">
-                <div v-if="msg.user ==  username" style="color:red">{{msg.user}}:</div>
-                <div v-if="msg.user != username" style="color:blue">{{msg.user}}:</div>
-                <v-card class="pa-2">{{msg.data}}</v-card>
-              </div>
+              <v-card-actions>
+                <v-layout wrap>
+                  <v-spacer></v-spacer>
+                  <v-btn outline right="true" :to="'/chat'">anyonmous</v-btn>
+                  <v-btn outline right="true" :to="'/inspire'">i am a user</v-btn>
+                </v-layout>
+              </v-card-actions>
             </div>
-            <v-text-field v-model="msg" label="msg" required></v-text-field>
-            <v-btn flat @click="chat">send</v-btn>
-          </v-flex>
-          <v-flex xs12 md5>
-            <h4>total man : {{sum}}</h4>
-            <h4 v-for="user in userlist" :key="user" style="color:purple">{{user.name}}</h4>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-    </v-layout>
-  </v-container>
+          </v-card>
+        </v-flex>
+      </v-layout>
+      <div class="container">
+        <h1>Home page</h1>
+        <p>
+          <NuxtLink to="/about">About page</NuxtLink>
+        </p>
+        <p>
+          <NuxtLink to="/users">Lists of users</NuxtLink>
+        </p>
+      </div>
+      <br />
+      <show></show>
+    </v-container>
+  </div>
 </template>
 
 <script>
-import Logo from "~/components/Logo.vue";
-import VuetifyLogo from "~/components/VuetifyLogo.vue";
-import socket from "~/plugins/socket.io.js";
+import show from "~/components/show.vue";
+
 export default {
+  components: {
+    show
+  },
   data: () => {
     return {
-      username: "",
-      userlist: [],
-      tname: "",
-      msg: "",
-      msgs: [],
-      sum: 0,
-      isconnect: "waiting for server"
+      com: false
     };
   },
-  mounted() {},
-  methods: {
-    chat() {
-      socket.emit("chatting", this.username, this.msg);
-      this.msg = "";
-    },
-    sure() {
-      this.username = this.tname;
-      socket.emit("username", this.username);
-      // listen on shake init
-      socket.on("shake", res => {
-        this.isconnect = "connet to serve";
-        this.sum = res.sum;
-        this.msgs = res.msgs;
-        this.userlist = res.userlist;
-        console.log(this.userlist);
-      });
-      //on msg
-      socket.on("msg", msg => {
-        this.msgs.push(msg);
-        var element = document.getElementById("msg");
-        setTimeout(() => {
-          element.scrollTop = element.scrollHeight;
-        }, 20);
-      });
-    }
+  mounted() {
+    setTimeout(() => {
+      this.com = !this.com;
+    }, 700);
   }
 };
 </script>
-<style scoped>
-.msg {
-  height: 200px;
-  overflow-y: scroll;
+
+<style>
+.tweakOpacity-enter-active,
+.tweakOpacity-leave-active {
+  transition: opacity 2s ease-out;
+}
+.tweakOpacity-enter,
+.tweakOpacity-leave-active {
+  opacity: 0;
 }
 </style>
