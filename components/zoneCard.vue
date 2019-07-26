@@ -2,7 +2,7 @@
   <div style="margin-bottom:1rem">
     <v-card flat style="border:1px solid #ccc">
       <v-layout>
-        <v-flex md1>
+        <v-flex md1 class="hidden-sm-and-down">
           <div></div>
           <v-img
             src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60"
@@ -10,7 +10,7 @@
           ></v-img>
         </v-flex>
 
-        <v-flex md10>
+        <v-flex xs12 md10>
           <v-container>
             <v-layout>
               <span class="headline">HYC</span>
@@ -20,7 +20,7 @@
             </v-card-actions>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn outline>more</v-btn>
+              <v-btn small outline>more</v-btn>
             </v-card-actions>
           </v-container>
         </v-flex>

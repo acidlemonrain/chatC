@@ -1,12 +1,12 @@
 <template>
   <v-container>
     <v-layout align-start>
-      <v-flex md3 class="leftBoard">
+      <v-flex md3 class="leftBoard hidden-sm-and-down">
         <v-container>
           <leftcard v-for="n in 3" :key="n"></leftcard>
         </v-container>
       </v-flex>
-      <v-flex md9 class="main">
+      <v-flex md9 xs12 class="main">
         <v-layout column>
           <v-flex>
             <v-layout>

@@ -40,7 +40,7 @@
                 </v-container>
               </v-flex>
 
-              <v-flex md4>
+              <v-flex md4 class="hidden-sm-and-down">
                 <v-container>
                   <v-layout>
                     <v-card flat width="100%">

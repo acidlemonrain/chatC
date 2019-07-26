@@ -8,13 +8,19 @@
             <div class="pa-5">
               <div class="display-1">welcome to chatting chatting</div>
 
-              <v-card-actions>
-                <v-layout wrap>
-                  <v-spacer></v-spacer>
+              <v-layout wrap>
+                <v-spacer></v-spacer>
+                <div class="hidden-sm-and-up">
+                  <v-layout column align-start>
+                    <v-btn small width="100%" :to="'/chat'">anyonmous</v-btn>
+                    <v-btn small width="100%" :to="'/inspire'">i am a user</v-btn>
+                  </v-layout>
+                </div>
+                <div class="hidden-sm-and-down">
                   <v-btn outline right="true" :to="'/chat'">anyonmous</v-btn>
                   <v-btn outline right="true" :to="'/inspire'">i am a user</v-btn>
-                </v-layout>
-              </v-card-actions>
+                </div>
+              </v-layout>
             </div>
           </v-card>
         </v-flex>

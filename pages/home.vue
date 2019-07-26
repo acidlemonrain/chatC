@@ -5,14 +5,13 @@
         <v-card width="100%" class="mt-5" flat style="border:1px solid #ccc">
           <img
             src="https://images.unsplash.com/photo-1499892477393-f675706cbe6e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60"
-            alt
             class="img"
             style="border:1px solid #ccc"
           />
 
           <v-container>
             <v-layout wrap justify-center>
-              <v-flex md10>
+              <v-flex xs12 md10>
                 <v-container>
                   <v-layout>
                     <v-spacer></v-spacer>

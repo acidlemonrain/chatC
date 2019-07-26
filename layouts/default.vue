@@ -7,11 +7,19 @@
       </v-btn>
 
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat :to="'/login'">Link One</v-btn>
-        <v-btn flat :to="'/home'">Link Two</v-btn>
-        <v-btn flat :to="'/zone'">Zone</v-btn>
-      </v-toolbar-items>
+      <v-menu offset-y>
+        <template v-slot:activator="{ on }">
+          <v-btn outline v-on="on">Dropdown</v-btn>
+        </template>
+
+        <v-card flat>
+          <v-layout column>
+            <v-btn flat :to="'/login'">Link One</v-btn>
+            <v-btn flat :to="'/home'">Link Two</v-btn>
+            <v-btn flat :to="'/zone'">Zone</v-btn>
+          </v-layout>
+        </v-card>
+      </v-menu>
     </v-toolbar>
 
     <v-content>
